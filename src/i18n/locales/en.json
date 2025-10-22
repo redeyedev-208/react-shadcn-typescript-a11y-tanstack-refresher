@@ -1,0 +1,128 @@
+{
+  "app": {
+    "title": "A11y Showcase",
+    "subtitle": "A comprehensive toolkit for building accessible web applications"
+  },
+  "navigation": {
+    "title": "Navigation",
+    "home": "Home",
+    "features": "Features", 
+    "testing": "Testing",
+    "components": "Components",
+    "about": "About"
+  },
+  "dashboard": {
+    "settings": "Dashboard Settings",
+    "language": "Language",
+    "theme": "Theme"
+  },
+  "hero": {
+    "title": "Accessibility Champions",
+    "showcase": "Showcase", 
+    "description": "A comprehensive toolkit for building accessible web applications. Test WCAG compliance, explore modern React patterns, and empower your team with accessibility best practices.",
+    "startTesting": "Start Testing",
+    "viewComponents": "View Components"
+  },
+  "features": {
+    "title": "Why Choose Our Platform?",
+    "description": "Built by accessibility experts, for accessibility champions. Everything you need to create inclusive digital experiences.",
+    "wcag": {
+      "title": "WCAG 2.2 Compliance",
+      "description": "Comprehensive accessibility testing with pa11y to ensure your sites meet the highest standards."
+    },
+    "realtime": {
+      "title": "Real-time Testing", 
+      "description": "Instant feedback on accessibility issues with detailed explanations and remediation guidance."
+    },
+    "collaboration": {
+      "title": "Team Collaboration",
+      "description": "Built for Accessibility Champions Programs to train and empower teams across organizations."
+    },
+    "expertise": {
+      "title": "Expert Guidance",
+      "description": "Created by an A11y SME with VPAT experience to provide industry best practices."
+    }
+  },
+  "technology": {
+    "title": "Modern Technology Stack",
+    "description": "Built with the latest tools and frameworks for optimal performance and developer experience."
+  },
+  "testing": {
+    "title": "Accessibility Testing",
+    "description": "Test any website for WCAG 2.2 compliance using our integrated pa11y testing tool. Get detailed reports with actionable insights to improve accessibility."
+  },
+  "showcase": {
+    "title": "Component Showcase",
+    "description": "Explore how ShadCN UI components integrate with TanStack libraries to create accessible, performant user interfaces.",
+    "tabs": {
+      "buttons": "Buttons",
+      "forms": "Forms", 
+      "data": "Data Tables",
+      "feedback": "Feedback"
+    },
+    "buttons": {
+      "title": "Button Variants",
+      "description": "Accessible button components with proper ARIA attributes and keyboard navigation.",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "outline": "Outline",
+      "ghost": "Ghost", 
+      "destructive": "Destructive",
+      "small": "Small",
+      "default": "Default",
+      "large": "Large"
+    }
+  },
+  "table": {
+    "title": "Advanced Data Table",
+    "search": "Search...",
+    "loading": "Loading...",
+    "noResults": "No results found",
+    "rowsPerPage": "Rows per page",
+    "columns": {
+      "id": "ID",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "view": "View"
+    }
+  },
+  "forms": {
+    "title": "Interactive Forms",
+    "userForm": "User Form",
+    "fields": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "role": "Role",
+      "submit": "Submit"
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid email"
+    }
+  },
+  "components": {
+    "title": "UI Components Showcase",
+    "buttons": "Buttons",
+    "cards": "Cards",
+    "dialogs": "Dialogs",
+    "alerts": "Alerts"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "open": "Open",
+    "yes": "Yes",
+    "no": "No"
+  }
+}

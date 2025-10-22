@@ -1,0 +1,128 @@
+{
+  "app": {
+    "title": "A11y Präsentation",
+    "subtitle": "Ein umfassendes Toolkit zum Erstellen barrierefreier Webanwendungen"
+  },
+  "hero": {
+    "title": "Barrierefreiheits-Champions",
+    "showcase": "Präsentation",
+    "description": "Ein umfassendes Toolkit zum Erstellen barrierefreier Webanwendungen. Testen Sie WCAG-Konformität, erkunden Sie moderne React-Muster und stärken Sie Ihr Team mit Best Practices für Barrierefreiheit.",
+    "startTesting": "Test starten",
+    "viewComponents": "Komponenten anzeigen"
+  },
+  "features": {
+    "title": "Warum unsere Plattform wählen?",
+    "description": "Von Barrierefreiheitsexperten für Barrierefreiheits-Champions entwickelt. Alles was Sie brauchen, um inklusive digitale Erfahrungen zu schaffen.",
+    "wcag": {
+      "title": "WCAG 2.2 Konformität",
+      "description": "Umfassende Barrierefreiheitstests mit pa11y, um sicherzustellen, dass Ihre Websites den höchsten Standards entsprechen."
+    },
+    "realtime": {
+      "title": "Echtzeit-Tests",
+      "description": "Sofortiges Feedback zu Barrierefreiheitsproblemen mit detaillierten Erklärungen und Lösungsanleitungen."
+    },
+    "collaboration": {
+      "title": "Team-Zusammenarbeit",
+      "description": "Entwickelt für Barrierefreiheits-Champions-Programme zur Schulung und Stärkung von Teams in Organisationen."
+    },
+    "expertise": {
+      "title": "Expertenberatung",
+      "description": "Erstellt von einem A11y-Experten mit VPAT-Erfahrung, um bewährte Branchenpraktiken zu bieten."
+    }
+  },
+  "technology": {
+    "title": "Moderne Technologie-Stack",
+    "description": "Mit den neuesten Tools und Frameworks für optimale Leistung und Entwicklererfahrung entwickelt."
+  },
+  "testing": {
+    "title": "Barrierefreiheitstests",
+    "description": "Testen Sie jede Website auf WCAG 2.2-Konformität mit unserem integrierten pa11y-Testtool. Erhalten Sie detaillierte Berichte mit umsetzbaren Erkenntnissen zur Verbesserung der Barrierefreiheit."
+  },
+  "showcase": {
+    "title": "Komponenten-Präsentation",
+    "description": "Erkunden Sie, wie ShadCN UI-Komponenten mit TanStack-Bibliotheken integriert werden, um barrierefreie, leistungsstarke Benutzeroberflächen zu erstellen.",
+    "tabs": {
+      "buttons": "Schaltflächen",
+      "forms": "Formulare",
+      "data": "Datentabellen",
+      "feedback": "Rückmeldung"
+    },
+    "buttons": {
+      "title": "Schaltflächen-Varianten",
+      "description": "Barrierefreie Schaltflächen-Komponenten mit entsprechenden ARIA-Attributen und Tastaturnavigation.",
+      "primary": "Primär",
+      "secondary": "Sekundär",
+      "outline": "Umriss",
+      "ghost": "Geist",
+      "destructive": "Destruktiv",
+      "small": "Klein",
+      "default": "Standard",
+      "large": "Groß"
+    }
+  },
+  "navigation": {
+    "title": "Navigation",
+    "home": "Startseite",
+    "features": "Funktionen",
+    "testing": "Tests",
+    "components": "Komponenten",
+    "about": "Über uns"
+  },
+  "dashboard": {
+    "settings": "Dashboard-Einstellungen",
+    "language": "Sprache",
+    "theme": "Design"
+  },
+  "table": {
+    "title": "Erweiterte Datentabelle",
+    "search": "Suchen...",
+    "loading": "Wird geladen...",
+    "noResults": "Keine Ergebnisse gefunden",
+    "rowsPerPage": "Zeilen pro Seite",
+    "columns": {
+      "id": "ID",
+      "name": "Name",
+      "email": "E-Mail",
+      "role": "Rolle",
+      "status": "Status",
+      "actions": "Aktionen"
+    },
+    "actions": {
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "view": "Ansehen"
+    }
+  },
+  "forms": {
+    "title": "Interaktive Formulare",
+    "userForm": "Benutzerformular",
+    "fields": {
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "role": "Rolle",
+      "submit": "Senden"
+    },
+    "validation": {
+      "required": "Dieses Feld ist erforderlich",
+      "email": "Bitte geben Sie eine gültige E-Mail ein"
+    }
+  },
+  "components": {
+    "title": "UI-Komponenten Showcase",
+    "buttons": "Schaltflächen",
+    "cards": "Karten",
+    "dialogs": "Dialoge",
+    "alerts": "Benachrichtigungen"
+  },
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "close": "Schließen",
+    "open": "Öffnen",
+    "yes": "Ja",
+    "no": "Nein"
+  }
+}

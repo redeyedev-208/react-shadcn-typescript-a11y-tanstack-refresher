@@ -1,0 +1,98 @@
+{
+  "app": {
+    "title": "Vitrine A11y",
+    "subtitle": "Une boîte à outils complète pour créer des applications web accessibles"
+  },
+  "navigation": {
+    "title": "Navigation",
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "testing": "Tests",
+    "components": "Composants",
+    "about": "À propos"
+  },
+  "dashboard": {
+    "settings": "Paramètres du Tableau de Bord",
+    "language": "Langue",
+    "theme": "Thème"
+  },
+  "hero": {
+    "title": "Champions d'Accessibilité",
+    "showcase": "Démonstration", 
+    "description": "Une boîte à outils complète pour créer des applications web accessibles. Testez la conformité WCAG, explorez les modèles React modernes et renforcez votre équipe avec les meilleures pratiques d'accessibilité.",
+    "startTesting": "Commencer les Tests",
+    "viewComponents": "Voir les Composants"
+  },
+  "features": {
+    "title": "Pourquoi Choisir Notre Plateforme?",
+    "description": "Construite par des experts en accessibilité, pour les champions d'accessibilité. Tout ce dont vous avez besoin pour créer des expériences numériques inclusives.",
+    "wcag": {
+      "title": "Conformité WCAG 2.2",
+      "description": "Tests d'accessibilité complets avec pa11y pour s'assurer que vos sites répondent aux normes les plus élevées."
+    },
+    "realtime": {
+      "title": "Tests en Temps Réel", 
+      "description": "Retour instantané sur les problèmes d'accessibilité avec des explications détaillées et des conseils de remédiation."
+    },
+    "collaboration": {
+      "title": "Collaboration d'Équipe",
+      "description": "Construite pour les Programmes de Champions d'Accessibilité pour former et autonomiser les équipes dans les organisations."
+    },
+    "expertise": {
+      "title": "Guidance d'Expert",
+      "description": "Créée par un SME A11y avec une expérience VPAT pour fournir les meilleures pratiques de l'industrie."
+    }
+  },
+  "table": {
+    "title": "Tableau de Données Avancé",
+    "search": "Rechercher...",
+    "loading": "Chargement...",
+    "noResults": "Aucun résultat trouvé",
+    "rowsPerPage": "Lignes par page",
+    "columns": {
+      "id": "ID",
+      "name": "Nom",
+      "email": "Email",
+      "role": "Rôle",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "actions": {
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "view": "Voir"
+    }
+  },
+  "forms": {
+    "title": "Formulaires Interactifs",
+    "userForm": "Formulaire Utilisateur",
+    "fields": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email",
+      "role": "Rôle",
+      "submit": "Soumettre"
+    },
+    "validation": {
+      "required": "Ce champ est requis",
+      "email": "Veuillez entrer un email valide"
+    }
+  },
+  "components": {
+    "title": "Vitrine des Composants UI",
+    "buttons": "Boutons",
+    "cards": "Cartes",
+    "dialogs": "Dialogues",
+    "alerts": "Alertes"
+  },
+  "common": {
+    "save": "Sauvegarder",
+    "cancel": "Annuler",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "yes": "Oui",
+    "no": "Non"
+  }
+}

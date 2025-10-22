@@ -1,0 +1,128 @@
+{
+  "app": {
+    "title": "Demostración A11y",
+    "subtitle": "Un conjunto completo de herramientas para crear aplicaciones web accesibles"
+  },
+  "navigation": {
+    "title": "Navegación",
+    "home": "Inicio",
+    "features": "Características",
+    "testing": "Pruebas",
+    "components": "Componentes",
+    "about": "Acerca de"
+  },
+  "dashboard": {
+    "settings": "Configuración del Panel",
+    "language": "Idioma",
+    "theme": "Tema"
+  },
+  "hero": {
+    "title": "Campeones de Accesibilidad",
+    "showcase": "Demostración", 
+    "description": "Un conjunto completo de herramientas para crear aplicaciones web accesibles. Prueba el cumplimiento de WCAG, explora patrones modernos de React y empodera a tu equipo con las mejores prácticas de accesibilidad.",
+    "startTesting": "Comenzar Pruebas",
+    "viewComponents": "Ver Componentes"
+  },
+  "features": {
+    "title": "¿Por Qué Elegir Nuestra Plataforma?",
+    "description": "Construida por expertos en accesibilidad, para campeones de accesibilidad. Todo lo que necesitas para crear experiencias digitales inclusivas.",
+    "wcag": {
+      "title": "Cumplimiento WCAG 2.2",
+      "description": "Pruebas integrales de accesibilidad con pa11y para asegurar que tus sitios cumplan con los más altos estándares."
+    },
+    "realtime": {
+      "title": "Pruebas en Tiempo Real", 
+      "description": "Retroalimentación instantánea sobre problemas de accesibilidad con explicaciones detalladas y guía de remediación."
+    },
+    "collaboration": {
+      "title": "Colaboración en Equipo",
+      "description": "Construida para Programas de Campeones de Accesibilidad para entrenar y empoderar equipos en organizaciones."
+    },
+    "expertise": {
+      "title": "Orientación Experta",
+      "description": "Creada por un SME de A11y con experiencia VPAT para proporcionar las mejores prácticas de la industria."
+    }
+  },
+  "technology": {
+    "title": "Stack Tecnológico Moderno",
+    "description": "Construida con las herramientas y frameworks más recientes para un rendimiento óptimo y experiencia de desarrollador."
+  },
+  "testing": {
+    "title": "Pruebas de Accesibilidad",
+    "description": "Prueba cualquier sitio web para el cumplimiento de WCAG 2.2 usando nuestra herramienta integrada de pruebas pa11y. Obtén reportes detallados con insights accionables para mejorar la accesibilidad."
+  },
+  "showcase": {
+    "title": "Demostración de Componentes",
+    "description": "Explora cómo los componentes ShadCN UI se integran con las librerías TanStack para crear interfaces de usuario accesibles y performantes.",
+    "tabs": {
+      "buttons": "Botones",
+      "forms": "Formularios", 
+      "data": "Tablas de Datos",
+      "feedback": "Retroalimentación"
+    },
+    "buttons": {
+      "title": "Variantes de Botones",
+      "description": "Componentes de botón accesibles con atributos ARIA apropiados y navegación por teclado.",
+      "primary": "Primario",
+      "secondary": "Secundario",
+      "outline": "Contorno",
+      "ghost": "Fantasma", 
+      "destructive": "Destructivo",
+      "small": "Pequeño",
+      "default": "Predeterminado",
+      "large": "Grande"
+    }
+  },
+  "table": {
+    "title": "Tabla de Datos Avanzada",
+    "search": "Buscar...",
+    "loading": "Cargando...",
+    "noResults": "No se encontraron resultados",
+    "rowsPerPage": "Filas por página",
+    "columns": {
+      "id": "ID",
+      "name": "Nombre",
+      "email": "Correo",
+      "role": "Rol",
+      "status": "Estado",
+      "actions": "Acciones"
+    },
+    "actions": {
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "view": "Ver"
+    }
+  },
+  "forms": {
+    "title": "Formularios Interactivos",
+    "userForm": "Formulario de Usuario",
+    "fields": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo",
+      "role": "Rol",
+      "submit": "Enviar"
+    },
+    "validation": {
+      "required": "Este campo es obligatorio",
+      "email": "Por favor ingrese un correo válido"
+    }
+  },
+  "components": {
+    "title": "Demostración de Componentes UI",
+    "buttons": "Botones",
+    "cards": "Tarjetas",
+    "dialogs": "Diálogos",
+    "alerts": "Alertas"
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "close": "Cerrar",
+    "open": "Abrir",
+    "yes": "Sí",
+    "no": "No"
+  }
+}
