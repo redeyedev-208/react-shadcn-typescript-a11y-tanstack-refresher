@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+# Project Description
+Working example of using React with TypeScript, i18 (localization), TanStack and testing using jest ane cypress. We also have a toggle for light and dark mode.
+There will be a url input on the dashboard to run an accessibility audit on any url. That displays any issues below the input dynamically. 
+We'll we using JSON WebServer to mock a DB to utilize our TanStack libraries for various examples. This whole application when complete will have WCAG 2.2 AAA as it's standard. Deployed to vercerl when fully complete to have a working demo for helping others learn about web accessibility.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img width="1348" height="777" alt="react-typescript-shadcn-home-page" src="https://github.com/user-attachments/assets/a6e435b4-8774-497d-88f8-6b3ce191414e" />
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## **Tech Stack Section**
+- Complete breakdown of all technologies used
+- Organized into logical categories (Core, UI, State Management, etc.)
+- Specific versions mentioned where relevant
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## **shadcn/ui Integration**  
+- Explains how shadcn/ui is used in the project
+- Lists key components being utilized
+- Emphasizes accessibility and customization benefits
 
-## Expanding the ESLint configuration
+## **Internationalization (i18n)**
+- Covers react-i18next implementation
+- Browser detection capabilities
+- Organization strategies for translations
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## **Testing Strategy**
+- Unit/Integration testing with Jest & RTL
+- E2E testing with Cypress
+- Accessibility testing with pa11y
+- Specific commands for each testing approach
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## **JSON Server Backend**
+- Explains the mock backend setup
+- Shows how to run frontend and backend together
+- Emphasizes development simplicity
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## **Development Workflow**
+- Clear getting started instructions
+- All available npm scripts explained
+- Git workflow for frequent pushes
+- Commit message conventions
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## **Coming Soon Section**
+- TanStack Query integration in progress
+- CI/CD pipeline via github actions that will deploy to vercel or netlify
