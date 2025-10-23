@@ -31,6 +31,11 @@ Project has a 100% fully accessible baseline, and accessibility issues will be f
 - Accessibility testing with pa11y
 - Specific commands for each testing approach
 
+Jest Test(s) baseline with coverage example
+<img width="959" height="947" alt="jest-test-coverage-baseline" src="https://github.com/user-attachments/assets/4124a9e4-4c1d-44a5-be4b-69e71c72d110" />
+
+
+
 ## **JSON Server Backend**
 - Explains the mock backend setup
 - Shows how to run frontend and backend together
