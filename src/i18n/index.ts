@@ -23,16 +23,16 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    debug: typeof import.meta !== 'undefined' ? import.meta.env?.DEV : false,
-    
+    debug: false, // Set to true for debugging i18n issues
+
     interpolation: {
       escapeValue: false, // React already does escaping
     },
-    
+
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
     },
-  });;
+  });
 
 export default i18n;

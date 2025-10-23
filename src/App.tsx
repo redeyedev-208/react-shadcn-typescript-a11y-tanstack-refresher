@@ -24,6 +24,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { AccessibilityTester } from '@/components/AccessibilityTester';
+import { AccessibleFormExamples } from '@/components/forms/AccessibleFormExamples';
 
 function App() {
   const { t } = useTranslation();
@@ -386,21 +387,7 @@ function App() {
                 value='forms'
                 className='space-y-4'
               >
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Form Components</CardTitle>
-                    <CardDescription>
-                      Accessible form elements with proper labeling and
-                      validation feedback.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className='text-muted-foreground'>
-                      Form showcase components will be implemented with proper
-                      accessibility patterns.
-                    </p>
-                  </CardContent>
-                </Card>
+                <AccessibleFormExamples />
               </TabsContent>
 
               <TabsContent

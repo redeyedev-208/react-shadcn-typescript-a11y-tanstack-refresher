@@ -37,25 +37,31 @@ jest.mock('react-i18next', () => ({
 }));
 
 // Mock IntersectionObserver
-(window as any).IntersectionObserver = class IntersectionObserver {
-  constructor() {}
-  observe() {}
-  disconnect() {}
-  unobserve() {}
-};
+Object.defineProperty(window, 'IntersectionObserver', {
+  writable: true,
+  value: class IntersectionObserver {
+    constructor() {}
+    observe() {}
+    disconnect() {}
+    unobserve() {}
+  },
+});
 
 // Mock ResizeObserver
-(window as any).ResizeObserver = class ResizeObserver {
-  constructor() {}
-  observe() {}
-  disconnect() {}
-  unobserve() {}
-};
+Object.defineProperty(window, 'ResizeObserver', {
+  writable: true,
+  value: class ResizeObserver {
+    constructor() {}
+    observe() {}
+    disconnect() {}
+    unobserve() {}
+  },
+});
 
 // Mock matchMedia
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: jest.fn().mockImplementation(query => ({
+  value: jest.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
@@ -65,4 +71,57 @@ Object.defineProperty(window, 'matchMedia', {
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn(),
   })),
+});
+
+// Mock scrollIntoView for JSDOM
+Element.prototype.scrollIntoView = jest.fn();
+
+// Mock hasPointerCapture for Radix UI components
+Element.prototype.hasPointerCapture = jest.fn(() => false);
+Element.prototype.setPointerCapture = jest.fn();
+Element.prototype.releasePointerCapture = jest.fn();
+
+// Mock fetch and Response for all tests
+Object.defineProperty(globalThis, 'fetch', {
+  writable: true,
+  value: jest.fn(),
+});
+
+// Mock Response constructor
+Object.defineProperty(globalThis, 'Response', {
+  writable: true,
+  value: class MockResponse {
+    ok: boolean;
+    status: number;
+    statusText: string;
+    headers: Map<string, string>;
+    url: string;
+    private _body: unknown;
+
+    constructor(body?: BodyInit | null, init?: ResponseInit) {
+      this.ok = (init?.status ?? 200) >= 200 && (init?.status ?? 200) < 300;
+      this.status = init?.status ?? 200;
+      this.statusText = init?.statusText ?? 'OK';
+      this.headers = new Map();
+      this.url = '';
+      this._body = body;
+    }
+
+    async json(): Promise<unknown> {
+      if (typeof this._body === 'string') {
+        return JSON.parse(this._body);
+      }
+      return this._body || {};
+    }
+
+    async text(): Promise<string> {
+      return typeof this._body === 'string'
+        ? this._body
+        : JSON.stringify(this._body || {});
+    }
+
+    clone(): Response {
+      return this as unknown as Response;
+    }
+  },
 });

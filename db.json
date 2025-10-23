@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "firstName": "John",
       "lastName": "Doe",
       "email": "john.doe@example.com",
@@ -12,7 +12,7 @@
       "lastLogin": "2024-10-21T14:22:00Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "firstName": "Jane",
       "lastName": "Smith",
       "email": "jane.smith@example.com",
@@ -23,7 +23,7 @@
       "lastLogin": "2024-10-21T09:45:00Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "firstName": "Mike",
       "lastName": "Johnson",
       "email": "mike.johnson@example.com",
@@ -34,7 +34,7 @@
       "lastLogin": "2024-09-15T11:30:00Z"
     },
     {
-      "id": 4,
+      "id": "4",
       "firstName": "Sarah",
       "lastName": "Wilson",
       "email": "sarah.wilson@example.com",
@@ -45,7 +45,7 @@
       "lastLogin": "2024-10-20T16:15:00Z"
     },
     {
-      "id": 5,
+      "id": "5",
       "firstName": "David",
       "lastName": "Brown",
       "email": "david.brown@example.com",
@@ -56,7 +56,7 @@
       "lastLogin": "2024-10-21T13:50:00Z"
     },
     {
-      "id": 6,
+      "id": "6",
       "firstName": "Emily",
       "lastName": "Davis",
       "email": "emily.davis@example.com",
@@ -65,40 +65,109 @@
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Emily",
       "createdAt": "2024-06-20T09:15:00Z",
       "lastLogin": "2024-10-21T08:20:00Z"
+    },
+    {
+      "id": 1761188614431,
+      "email": "redeyedev.208@gmail.com",
+      "password": "Coffee_123456!",
+      "confirmPassword": "Coffee_123456!",
+      "firstName": "Gil",
+      "lastName": "Aguilar",
+      "birthDate": "1975-08-11",
+      "country": "us",
+      "phoneNumber": "19868373766",
+      "bio": "Testing",
+      "newsletter": false,
+      "dataProcessing": true,
+      "accountType": "personal",
+      "createdAt": "2025-10-23T03:03:34.431Z",
+      "status": "Active",
+      "role": "User",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=GilAguilar"
+    },
+    {
+      "id": 1761189228667,
+      "email": "redeyedev.208@gmail.com",
+      "password": "Coffee_123456!",
+      "confirmPassword": "Coffee_123456!",
+      "firstName": "Gil",
+      "lastName": "Aguilar",
+      "birthDate": "1975-08-11",
+      "country": "us",
+      "phoneNumber": "19868373766",
+      "bio": "Testing",
+      "newsletter": false,
+      "dataProcessing": true,
+      "accountType": "business",
+      "createdAt": "2025-10-23T03:13:48.667Z",
+      "status": "Active",
+      "role": "Business User",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=GilAguilar"
+    },
+    {
+      "id": 1761189239154,
+      "email": "redeyedev.208@gmail.com",
+      "password": "Coffee_123456!",
+      "confirmPassword": "Coffee_123456!",
+      "firstName": "Gil",
+      "lastName": "Aguilar",
+      "birthDate": "1975-08-11",
+      "country": "us",
+      "phoneNumber": "19868373766",
+      "bio": "Testing",
+      "newsletter": false,
+      "dataProcessing": true,
+      "accountType": "business",
+      "createdAt": "2025-10-23T03:13:59.154Z",
+      "status": "Active",
+      "role": "Business User",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=GilAguilar"
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Premium Plan",
       "price": 29.99,
       "currency": "USD",
       "category": "Subscription",
       "status": "Active",
-      "features": ["Advanced Analytics", "Priority Support", "Custom Branding"]
+      "features": [
+        "Advanced Analytics",
+        "Priority Support",
+        "Custom Branding"
+      ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Basic Plan",
       "price": 9.99,
       "currency": "USD",
       "category": "Subscription",
       "status": "Active",
-      "features": ["Basic Analytics", "Email Support"]
+      "features": [
+        "Basic Analytics",
+        "Email Support"
+      ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Enterprise Plan",
       "price": 99.99,
       "currency": "USD",
       "category": "Subscription",
       "status": "Active",
-      "features": ["Full Analytics Suite", "24/7 Support", "Custom Integration", "Dedicated Manager"]
+      "features": [
+        "Full Analytics Suite",
+        "24/7 Support",
+        "Custom Integration",
+        "Dedicated Manager"
+      ]
     }
   ],
   "analytics": [
     {
-      "id": 1,
+      "id": "1",
       "date": "2024-10-21",
       "visitors": 1250,
       "pageViews": 3800,
@@ -106,7 +175,7 @@
       "averageSessionDuration": 245
     },
     {
-      "id": 2,
+      "id": "2",
       "date": "2024-10-20",
       "visitors": 1180,
       "pageViews": 3650,
@@ -114,7 +183,7 @@
       "averageSessionDuration": 230
     },
     {
-      "id": 3,
+      "id": "3",
       "date": "2024-10-19",
       "visitors": 1320,
       "pageViews": 4100,
