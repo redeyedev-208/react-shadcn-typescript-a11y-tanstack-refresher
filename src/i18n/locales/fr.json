@@ -9,7 +9,11 @@
     "features": "Fonctionnalités",
     "testing": "Tests",
     "components": "Composants",
-    "about": "À propos"
+    "about": "À propos",
+    "openMobileMenu": "Ouvrir le menu mobile",
+    "closeMobileMenu": "Fermer le menu mobile",
+    "mainNavigation": "Navigation principale",
+    "sidebarNavigation": "Navigation de la barre latérale"
   },
   "dashboard": {
     "settings": "Paramètres du Tableau de Bord",

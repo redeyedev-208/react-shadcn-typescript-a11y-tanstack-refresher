@@ -9,7 +9,11 @@
     "features": "Features", 
     "testing": "Testing",
     "components": "Components",
-    "about": "About"
+    "about": "About",
+    "openMobileMenu": "Open mobile menu",
+    "closeMobileMenu": "Close mobile menu",
+    "mainNavigation": "Main navigation",
+    "sidebarNavigation": "Sidebar navigation"
   },
   "dashboard": {
     "settings": "Dashboard Settings",

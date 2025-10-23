@@ -9,7 +9,11 @@
     "features": "Características",
     "testing": "Pruebas",
     "components": "Componentes",
-    "about": "Acerca de"
+    "about": "Acerca de",
+    "openMobileMenu": "Abrir menú móvil",
+    "closeMobileMenu": "Cerrar menú móvil",
+    "mainNavigation": "Navegación principal",
+    "sidebarNavigation": "Navegación de la barra lateral"
   },
   "dashboard": {
     "settings": "Configuración del Panel",
