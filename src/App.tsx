@@ -25,6 +25,7 @@ import { LanguageToggle } from '@/components/LanguageToggle';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { AccessibilityTester } from '@/components/AccessibilityTester';
 import { AccessibleFormExamples } from '@/components/forms/AccessibleFormExamples';
+import { AccessibleTableExamples } from '@/components/tables/AccessibleTableExamples';
 
 function App() {
   const { t } = useTranslation();
@@ -394,21 +395,7 @@ function App() {
                 value='data'
                 className='space-y-4'
               >
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Data Tables</CardTitle>
-                    <CardDescription>
-                      TanStack Table integration with ShadCN components for
-                      accessible data presentation.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className='text-muted-foreground'>
-                      Advanced data table components with sorting, filtering,
-                      and pagination.
-                    </p>
-                  </CardContent>
-                </Card>
+                <AccessibleTableExamples />
               </TabsContent>
 
               <TabsContent

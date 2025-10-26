@@ -83,18 +83,71 @@
     "loading": "Wird geladen...",
     "noResults": "Keine Ergebnisse gefunden",
     "rowsPerPage": "Zeilen pro Seite",
+    "userManagement": "Benutzerverwaltungstabelle",
+    "description": "TanStack Table Integration mit ShadCN Komponenten für barrierefreie Datenpräsentation mit Echtzeit-Paginierung",
+    "caption": "Eine Liste von Benutzern aus der JSON Server API",
     "columns": {
       "id": "ID",
       "name": "Name",
       "email": "E-Mail",
       "role": "Rolle",
       "status": "Status",
-      "actions": "Aktionen"
+      "actions": "Aktionen",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "avatar": "Avatar",
+      "createdAt": "Erstellt",
+      "lastLogin": "Letzte Anmeldung"
     },
     "actions": {
       "edit": "Bearbeiten",
       "delete": "Löschen",
-      "view": "Ansehen"
+      "view": "Ansehen",
+      "editUser": "{{name}}'s Informationen bearbeiten",
+      "deleteUser": "{{name}}'s Konto löschen",
+      "viewUser": "{{name}}'s Details ansehen"
+    },
+    "states": {
+      "loading": "Benutzer werden geladen...",
+      "error": "Fehler beim Laden der Benutzerdaten",
+      "errorMessage": "Fehler: {{message}}",
+      "failed": "Benutzer konnten nicht geladen werden"
+    }
+  },
+  "userModal": {
+    "view": {
+      "title": "👤 Benutzerdetails",
+      "description": "Detaillierte Informationen über {{name}} anzeigen",
+      "fields": {
+        "name": "Name",
+        "email": "E-Mail", 
+        "role": "Rolle",
+        "status": "Status",
+        "id": "ID",
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "avatar": "Profilbild",
+        "createdAt": "Mitglied Seit",
+        "lastLogin": "Letzte Anmeldung",
+        "fullName": "Vollständiger Name"
+      }
+    },
+    "edit": {
+      "title": "✏️ Benutzer Bearbeiten",
+      "description": "Informationen für {{name}} aktualisieren",
+      "saveButton": "Änderungen Speichern",
+      "cancelButton": "Abbrechen",
+      "successMessage": "Benutzer erfolgreich aktualisiert",
+      "errorMessage": "Benutzer konnte nicht aktualisiert werden"
+    },
+    "delete": {
+      "title": "🗑️ Benutzer Löschen",
+      "description": "Sind Sie sicher, dass Sie {{name}} löschen möchten?",
+      "warning": "Diese Aktion kann nicht rückgängig gemacht werden. Das Benutzerkonto und alle zugehörigen Daten werden dauerhaft gelöscht.",
+      "confirmButton": "Benutzer Löschen",
+      "cancelButton": "Abbrechen",
+      "successMessage": "Benutzer erfolgreich gelöscht",
+      "errorMessage": "Benutzer konnte nicht gelöscht werden"
     }
   },
   "forms": {

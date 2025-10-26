@@ -53,18 +53,71 @@
     "loading": "Chargement...",
     "noResults": "Aucun résultat trouvé",
     "rowsPerPage": "Lignes par page",
+    "userManagement": "Tableau de Gestion des Utilisateurs",
+    "description": "Intégration TanStack Table avec composants ShadCN pour présentation accessible des données avec pagination en temps réel",
+    "caption": "Une liste d'utilisateurs de l'API JSON Server",
     "columns": {
       "id": "ID",
       "name": "Nom",
       "email": "Email",
       "role": "Rôle",
       "status": "Statut",
-      "actions": "Actions"
+      "actions": "Actions",
+      "firstName": "Prénom",
+      "lastName": "Nom de famille",
+      "avatar": "Avatar",
+      "createdAt": "Créé",
+      "lastLogin": "Dernière Connexion"
     },
     "actions": {
       "edit": "Modifier",
       "delete": "Supprimer",
-      "view": "Voir"
+      "view": "Voir",
+      "editUser": "Modifier les informations de {{name}}",
+      "deleteUser": "Supprimer le compte de {{name}}",
+      "viewUser": "Voir les détails de {{name}}"
+    },
+    "states": {
+      "loading": "Chargement des utilisateurs...",
+      "error": "Erreur lors du chargement des données utilisateur",
+      "errorMessage": "Erreur: {{message}}",
+      "failed": "Échec du chargement des utilisateurs"
+    }
+  },
+  "userModal": {
+    "view": {
+      "title": "👤 Détails de l'Utilisateur",
+      "description": "Voir les informations détaillées sur {{name}}",
+      "fields": {
+        "name": "Nom",
+        "email": "Email", 
+        "role": "Rôle",
+        "status": "Statut",
+        "id": "ID",
+        "firstName": "Prénom",
+        "lastName": "Nom de famille",
+        "avatar": "Photo de Profil",
+        "createdAt": "Membre Depuis",
+        "lastLogin": "Dernière Connexion",
+        "fullName": "Nom Complet"
+      }
+    },
+    "edit": {
+      "title": "✏️ Modifier l'Utilisateur",
+      "description": "Mettre à jour les informations pour {{name}}",
+      "saveButton": "Sauvegarder les Modifications",
+      "cancelButton": "Annuler",
+      "successMessage": "Utilisateur mis à jour avec succès",
+      "errorMessage": "Échec de la mise à jour de l'utilisateur"
+    },
+    "delete": {
+      "title": "🗑️ Supprimer l'Utilisateur",
+      "description": "Êtes-vous sûr de vouloir supprimer {{name}}?",
+      "warning": "Cette action ne peut pas être annulée. Cela supprimera définitivement le compte utilisateur et toutes les données associées.",
+      "confirmButton": "Supprimer l'Utilisateur",
+      "cancelButton": "Annuler",
+      "successMessage": "Utilisateur supprimé avec succès",
+      "errorMessage": "Échec de la suppression de l'utilisateur"
     }
   },
   "forms": {

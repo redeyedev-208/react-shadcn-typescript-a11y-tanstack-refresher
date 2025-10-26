@@ -83,18 +83,71 @@
     "loading": "加载中...",
     "noResults": "未找到结果",
     "rowsPerPage": "每页行数",
+    "userManagement": "用户管理表格",
+    "description": "TanStack Table与ShadCN组件集成，提供可访问的数据展示和实时分页",
+    "caption": "来自JSON Server API的用户列表",
     "columns": {
       "id": "ID",
       "name": "姓名",
       "email": "邮箱",
       "role": "角色",
       "status": "状态",
-      "actions": "操作"
+      "actions": "操作",
+      "firstName": "名",
+      "lastName": "姓",
+      "avatar": "头像",
+      "createdAt": "创建时间",
+      "lastLogin": "最后登录"
     },
     "actions": {
       "edit": "编辑",
       "delete": "删除",
-      "view": "查看"
+      "view": "查看",
+      "editUser": "编辑{{name}}的信息",
+      "deleteUser": "删除{{name}}的账户",
+      "viewUser": "查看{{name}}的详情"
+    },
+    "states": {
+      "loading": "正在加载用户...",
+      "error": "加载用户数据时出错",
+      "errorMessage": "错误：{{message}}",
+      "failed": "用户加载失败"
+    }
+  },
+  "userModal": {
+    "view": {
+      "title": "👤 用户详情",
+      "description": "查看{{name}}的详细信息",
+      "fields": {
+        "name": "姓名",
+        "email": "邮箱", 
+        "role": "角色",
+        "status": "状态",
+        "id": "ID",
+        "firstName": "名",
+        "lastName": "姓",
+        "avatar": "头像",
+        "createdAt": "注册时间",
+        "lastLogin": "最后登录",
+        "fullName": "全名"
+      }
+    },
+    "edit": {
+      "title": "✏️ 编辑用户",
+      "description": "更新{{name}}的信息",
+      "saveButton": "保存更改",
+      "cancelButton": "取消",
+      "successMessage": "用户更新成功",
+      "errorMessage": "用户更新失败"
+    },
+    "delete": {
+      "title": "🗑️ 删除用户",
+      "description": "您确定要删除{{name}}吗？",
+      "warning": "此操作无法撤销。这将永久删除用户账户和所有相关数据。",
+      "confirmButton": "删除用户",
+      "cancelButton": "取消",
+      "successMessage": "用户删除成功",
+      "errorMessage": "用户删除失败"
     }
   },
   "forms": {

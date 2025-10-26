@@ -83,18 +83,71 @@
     "loading": "Cargando...",
     "noResults": "No se encontraron resultados",
     "rowsPerPage": "Filas por página",
+    "userManagement": "Tabla de Gestión de Usuarios",
+    "description": "Integración de TanStack Table con componentes ShadCN para presentación accesible de datos con paginación en tiempo real",
+    "caption": "Una lista de usuarios de la API de JSON Server",
     "columns": {
       "id": "ID",
       "name": "Nombre",
       "email": "Correo",
       "role": "Rol",
       "status": "Estado",
-      "actions": "Acciones"
+      "actions": "Acciones",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "avatar": "Avatar",
+      "createdAt": "Creado",
+      "lastLogin": "Último Acceso"
     },
     "actions": {
       "edit": "Editar",
       "delete": "Eliminar",
-      "view": "Ver"
+      "view": "Ver",
+      "editUser": "Editar información de {{name}}",
+      "deleteUser": "Eliminar cuenta de {{name}}",
+      "viewUser": "Ver detalles de {{name}}"
+    },
+    "states": {
+      "loading": "Cargando usuarios...",
+      "error": "Error al cargar datos de usuario",
+      "errorMessage": "Error: {{message}}",
+      "failed": "Error al cargar usuarios"
+    }
+  },
+  "userModal": {
+    "view": {
+      "title": "👤 Detalles del Usuario",
+      "description": "Ver información detallada sobre {{name}}",
+      "fields": {
+        "name": "Nombre",
+        "email": "Correo", 
+        "role": "Rol",
+        "status": "Estado",
+        "id": "ID",
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "avatar": "Foto de Perfil",
+        "createdAt": "Miembro Desde",
+        "lastLogin": "Último Acceso",
+        "fullName": "Nombre Completo"
+      }
+    },
+    "edit": {
+      "title": "✏️ Editar Usuario",
+      "description": "Actualizar información para {{name}}",
+      "saveButton": "Guardar Cambios",
+      "cancelButton": "Cancelar",
+      "successMessage": "Usuario actualizado exitosamente",
+      "errorMessage": "Error al actualizar usuario"
+    },
+    "delete": {
+      "title": "🗑️ Eliminar Usuario",
+      "description": "¿Estás seguro de que quieres eliminar a {{name}}?",
+      "warning": "Esta acción no se puede deshacer. Esto eliminará permanentemente la cuenta del usuario y todos los datos asociados.",
+      "confirmButton": "Eliminar Usuario",
+      "cancelButton": "Cancelar",
+      "successMessage": "Usuario eliminado exitosamente",
+      "errorMessage": "Error al eliminar usuario"
     }
   },
   "forms": {

@@ -83,18 +83,71 @@
     "loading": "Loading...",
     "noResults": "No results found",
     "rowsPerPage": "Rows per page",
+    "userManagement": "User Management Table",
+    "description": "TanStack Table integration with ShadCN components for accessible data presentation with real-time pagination",
+    "caption": "A list of users from JSON Server API",
     "columns": {
       "id": "ID",
       "name": "Name",
       "email": "Email",
       "role": "Role",
       "status": "Status",
-      "actions": "Actions"
+      "actions": "Actions",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "avatar": "Avatar",
+      "createdAt": "Created",
+      "lastLogin": "Last Login"
     },
     "actions": {
       "edit": "Edit",
       "delete": "Delete",
-      "view": "View"
+      "view": "View",
+      "editUser": "Edit {{name}}'s information",
+      "deleteUser": "Delete {{name}}'s account",
+      "viewUser": "View {{name}}'s details"
+    },
+    "states": {
+      "loading": "Loading users...",
+      "error": "Error loading user data",
+      "errorMessage": "Error: {{message}}",
+      "failed": "Failed to load users"
+    }
+  },
+  "userModal": {
+    "view": {
+      "title": "👤 User Details",
+      "description": "View detailed information about {{name}}",
+      "fields": {
+        "name": "Name",
+        "email": "Email", 
+        "role": "Role",
+        "status": "Status",
+        "id": "ID",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "avatar": "Profile Picture",
+        "createdAt": "Member Since",
+        "lastLogin": "Last Login",
+        "fullName": "Full Name"
+      }
+    },
+    "edit": {
+      "title": "✏️ Edit User",
+      "description": "Update information for {{name}}",
+      "saveButton": "Save Changes",
+      "cancelButton": "Cancel",
+      "successMessage": "User updated successfully",
+      "errorMessage": "Failed to update user"
+    },
+    "delete": {
+      "title": "🗑️ Delete User",
+      "description": "Are you sure you want to delete {{name}}?",
+      "warning": "This action cannot be undone. This will permanently delete the user account and remove all associated data.",
+      "confirmButton": "Delete User",
+      "cancelButton": "Cancel",
+      "successMessage": "User deleted successfully",
+      "errorMessage": "Failed to delete user"
     }
   },
   "forms": {
