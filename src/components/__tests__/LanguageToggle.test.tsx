@@ -131,4 +131,39 @@ describe('LanguageToggle', () => {
     expect(visibleSpan).toBeInTheDocument();
     expect(visibleSpan).toHaveClass('sm:hidden');
   });
+
+  it('handles language change errors gracefully', async () => {
+    const user = userEvent.setup();
+
+    // Mock console.error to prevent error output during test
+    const consoleSpy = jest
+      .spyOn(console, 'error')
+      .mockImplementation(() => {});
+
+    // Mock changeLanguage to throw an error
+    mockChangeLanguage.mockRejectedValueOnce(
+      new Error('Failed to change language'),
+    );
+
+    renderWithProvider(<LanguageToggle />);
+
+    const button = screen.getByRole('button', { name: /select language/i });
+    await user.click(button);
+
+    const spanishOption = screen.getByText('Español');
+    await user.click(spanishOption);
+
+    // Should handle the error gracefully (line 30)
+    await waitFor(() => {
+      expect(mockChangeLanguage).toHaveBeenCalledWith('es');
+    });
+
+    // Error should be logged to console
+    expect(consoleSpy).toHaveBeenCalledWith(
+      'Failed to change language:',
+      expect.any(Error),
+    );
+
+    consoleSpy.mockRestore();
+  });
 });

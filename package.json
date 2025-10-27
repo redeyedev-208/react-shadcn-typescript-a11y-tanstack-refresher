@@ -13,6 +13,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
+    "test:list": "jest --coverage --verbose | grep -E '(✓|✕|●|PASS|FAIL)' | sed 's/^[[:space:]]*/• /'",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "e2e": "concurrently \"npm run dev:full\" \"cypress open\""

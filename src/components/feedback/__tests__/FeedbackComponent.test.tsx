@@ -339,4 +339,56 @@ describe('FeedbackComponent', () => {
     // The component should handle this gracefully by checking if modalState.feedbackType exists
     expect(mockOnFeedbackSubmit).not.toHaveBeenCalled();
   });
+
+  test('19. restores focus to correct button when canceling modal', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    renderFeedbackComponent();
+
+    const negativeButton = screen.getByTestId('negative-feedback-button');
+
+    // Click negative feedback button
+    await user.click(negativeButton);
+
+    // Modal should open
+    expect(
+      screen.getByTestId('feedback-confirmation-modal'),
+    ).toBeInTheDocument();
+
+    // Cancel the modal
+    await user.click(screen.getByTestId('feedback-cancel-button'));
+
+    // Wait for focus restoration
+    jest.advanceTimersByTime(100);
+
+    // Focus should return to the negative button
+    await waitFor(() => {
+      expect(negativeButton).toHaveFocus();
+    });
+  });
+
+  test('20. handles modal closure via escape key with focus restoration', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    renderFeedbackComponent();
+
+    const positiveButton = screen.getByTestId('positive-feedback-button');
+
+    // Click positive feedback button
+    await user.click(positiveButton);
+
+    // Modal should open
+    expect(
+      screen.getByTestId('feedback-confirmation-modal'),
+    ).toBeInTheDocument();
+
+    // Close modal with Escape key
+    await user.keyboard('{Escape}');
+
+    // Wait for focus restoration
+    jest.advanceTimersByTime(100);
+
+    // Focus should return to the positive button
+    await waitFor(() => {
+      expect(positiveButton).toHaveFocus();
+    });
+  });
 });
