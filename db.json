@@ -329,6 +329,34 @@
       "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Laura",
       "createdAt": "2024-10-21T12:30:00Z",
       "lastLogin": "2024-10-21T19:15:00Z"
+    },
+    {
+      "id": "7dd4",
+      "email": "redeyedev.208@gmail.com",
+      "firstName": "Gil",
+      "lastName": "Aguilar",
+      "birthDate": "1975-11-11",
+      "country": "us",
+      "phoneNumber": "19868373766",
+      "bio": "",
+      "accountType": "personal",
+      "newsletter": false,
+      "dataProcessing": true,
+      "createdAt": "2025-10-26T23:50:05.756Z"
+    },
+    {
+      "id": "4c94",
+      "email": "redeyedev.208@gmail.com",
+      "firstName": "Gil",
+      "lastName": "Aguilar",
+      "birthDate": "1979-11-11",
+      "country": "us",
+      "phoneNumber": "19868373766",
+      "bio": "",
+      "accountType": "personal",
+      "newsletter": false,
+      "dataProcessing": true,
+      "createdAt": "2025-10-26T23:53:20.148Z"
     }
   ],
   "products": [

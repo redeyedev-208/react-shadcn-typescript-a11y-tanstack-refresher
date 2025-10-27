@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import {
   Card,
   CardContent,
@@ -22,6 +22,9 @@ import { ConsentSection } from './components/ConsentSection';
 import { useFormValidation } from './useFormValidation';
 import type { FormData } from './types';
 
+/**
+ * Initial form data with empty values for all fields.
+ */
 const initialFormData: FormData = {
   email: '',
   password: '',
@@ -37,6 +40,21 @@ const initialFormData: FormData = {
   accountType: '',
 };
 
+/**
+ * Comprehensive accessible registration form demonstrating WCAG 2.2 compliance.
+ *
+ * Features:
+ * - Complete form validation with real-time feedback
+ * - Focus management for modal interactions
+ * - Keyboard navigation support
+ * - Screen reader optimized error messaging
+ * - Password strength indicator
+ * - Required field identification
+ * - Form submission with success/error handling
+ * - Focus restoration after modal dismissal
+ *
+ * @returns {JSX.Element} Complete accessible registration form
+ */
 export function AccessibleFormExamples() {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,6 +64,17 @@ export function AccessibleFormExamples() {
     message: string;
     userId?: number;
   } | null>(null);
+
+  // Focus management - store reference to the submit button
+  const submitButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Helper function to restore focus to the submit button
+  const restoreFocusToSubmitButton = useCallback(() => {
+    // Small delay to ensure modal is fully closed before restoring focus
+    setTimeout(() => {
+      submitButtonRef.current?.focus();
+    }, 100);
+  }, []);
 
   const { errors, validateForm, clearErrors } = useFormValidation();
 
@@ -139,6 +168,7 @@ export function AccessibleFormExamples() {
     if (submissionResult?.success) {
       resetForm();
     }
+    restoreFocusToSubmitButton();
   };
 
   return (
@@ -184,6 +214,7 @@ export function AccessibleFormExamples() {
 
             <div className='flex flex-col sm:flex-row gap-3'>
               <Button
+                ref={submitButtonRef}
                 type='submit'
                 disabled={isSubmitting}
                 className='flex-1'
@@ -208,7 +239,11 @@ export function AccessibleFormExamples() {
       {/* Success/Error Modal */}
       <Dialog
         open={showSuccessModal}
-        onOpenChange={setShowSuccessModal}
+        onOpenChange={(open) => {
+          if (!open) {
+            handleModalClose();
+          }
+        }}
       >
         <DialogContent className='sm:max-w-md'>
           <DialogHeader>

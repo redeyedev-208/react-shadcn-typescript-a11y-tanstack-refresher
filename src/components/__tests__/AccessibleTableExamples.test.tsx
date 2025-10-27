@@ -32,6 +32,16 @@ jest.mock('react-i18next', () => ({
         'userModal.view.fields.role': '[TEST] Role',
         'userModal.view.fields.status': '[TEST] Status',
         'userModal.view.fields.id': '[TEST] ID',
+        'userModal.edit.title': '[TEST] Edit User',
+        'userModal.edit.description': `[TEST] Update information for ${params?.name}`,
+        'userModal.edit.saveButton': '[TEST] Save Changes',
+        'userModal.edit.cancelButton': '[TEST] Cancel',
+        'userModal.delete.title': '[TEST] Confirm Delete',
+        'userModal.delete.description': `[TEST] Are you sure you want to delete ${params?.name}?`,
+        'userModal.delete.warning':
+          '[TEST] This action cannot be undone. This will permanently delete the user account and remove all associated data.',
+        'common.cancel': '[TEST] Cancel',
+        'common.delete': '[TEST] Delete',
       };
       return translations[key] || key;
     },
@@ -66,8 +76,6 @@ jest.mock('@/components/ui/dialog', () => ({
     open: boolean;
     onOpenChange?: (open: boolean) => void;
   }) => {
-    console.log('Dialog render:', { open });
-
     React.useEffect(() => {
       const handleKeyDown = (e: KeyboardEvent) => {
         if (
@@ -198,7 +206,7 @@ jest.mock('@/components/ui/badge', () => ({
     children: React.ReactNode;
     variant?: string;
     'data-testid'?: string;
-    [key: string]: any;
+    [key: string]: unknown;
   }) => (
     <span
       data-testid={dataTestId || 'badge'}
@@ -219,7 +227,7 @@ jest.mock('@/components/ui/button', () => ({
   }: {
     children: React.ReactNode;
     onClick?: () => void;
-    [key: string]: any;
+    [key: string]: unknown;
   }) => (
     <button
       onClick={onClick}
@@ -255,15 +263,25 @@ const createMockUsersData = (page = 1, limit = 10, total = 30) => {
   const startIndex = (page - 1) * limit + 1;
   const users = Array.from(
     { length: Math.min(limit, total - (page - 1) * limit) },
-    (_, index) => ({
-      id: `${startIndex + index}`,
-      name: `User ${startIndex + index}`,
-      firstName: `User`,
-      lastName: `${startIndex + index}`,
-      email: `user${startIndex + index}@example.com`,
-      role: 'Editor',
-      status: 'Active' as const,
-    }),
+    (_, index) => {
+      const userNumber = startIndex + index;
+      const userName =
+        page === 1 ? `User ${userNumber}` : `Page${page}User ${userNumber}`;
+      const userEmail =
+        page === 1
+          ? `user${userNumber}@example.com`
+          : `page${page}user${userNumber}@example.com`;
+
+      return {
+        id: `${userNumber}`,
+        name: userName,
+        firstName: `User`,
+        lastName: `${userNumber}`,
+        email: userEmail,
+        role: 'Editor',
+        status: 'Active' as const,
+      };
+    },
   );
 
   return {
@@ -620,6 +638,7 @@ describe('AccessibleTableExamples', () => {
         error: null,
         isError: false,
         refetch: jest.fn(),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any);
 
       render(<AccessibleTableExamples />);
@@ -791,6 +810,370 @@ describe('AccessibleTableExamples', () => {
         expect(userTexts.length).toBeGreaterThan(0);
         const emailTexts = screen.getAllByText('page2user11@example.com');
         expect(emailTexts.length).toBeGreaterThan(0);
+      });
+    });
+  });
+
+  describe('Edit User Modal (i18n)', () => {
+    it('does not show edit modal by default', () => {
+      render(<AccessibleTableExamples />);
+
+      expect(screen.queryByText('[TEST] Edit User')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('edit-user-modal')).not.toBeInTheDocument();
+    });
+
+    it('opens edit modal when edit button is clicked', async () => {
+      const user = userEvent.setup();
+      render(<AccessibleTableExamples />);
+
+      const editButtons = screen.getAllByLabelText(/Edit .* information/);
+      expect(editButtons).toHaveLength(10);
+
+      await user.click(editButtons[0]);
+
+      await waitFor(() => {
+        expect(screen.getByTestId('edit-user-modal')).toBeInTheDocument();
+        expect(screen.getByTestId('edit-modal-title')).toBeInTheDocument();
+        expect(screen.getByText('[TEST] Edit User')).toBeInTheDocument();
+      });
+    });
+
+    it('displays pre-populated form with user information', async () => {
+      const user = userEvent.setup();
+      render(<AccessibleTableExamples />);
+
+      const editButton = screen.getByLabelText("Edit User 1's information");
+      await user.click(editButton);
+
+      await waitFor(() => {
+        const modal = screen.getByTestId('edit-user-modal');
+        expect(modal).toBeInTheDocument();
+
+        // Check form fields are pre-populated
+        const nameInput = screen.getByDisplayValue('User 1');
+        expect(nameInput).toBeInTheDocument();
+
+        const emailInput = screen.getByDisplayValue('user1@example.com');
+        expect(emailInput).toBeInTheDocument();
+
+        const roleSelect = screen.getByDisplayValue('Editor');
+        expect(roleSelect).toBeInTheDocument();
+      });
+    });
+    it('closes edit modal when cancel button is clicked', async () => {
+      const user = userEvent.setup();
+      render(<AccessibleTableExamples />);
+
+      const editButton = screen.getByLabelText("Edit User 1's information");
+      await user.click(editButton);
+
+      await waitFor(() => {
+        expect(screen.getByTestId('edit-user-modal')).toBeInTheDocument();
+      });
+
+      const cancelButton = screen.getByText('[TEST] Cancel');
+      await user.click(cancelButton);
+
+      await waitFor(() => {
+        expect(screen.queryByTestId('edit-user-modal')).not.toBeInTheDocument();
+      });
+    });
+
+    it('closes edit modal when close button (×) is clicked', async () => {
+      const user = userEvent.setup();
+      render(<AccessibleTableExamples />);
+
+      const editButton = screen.getByLabelText("Edit User 1's information");
+      await user.click(editButton);
+
+      await waitFor(() => {
+        expect(screen.getByTestId('edit-user-modal')).toBeInTheDocument();
+      });
+
+      const closeButton = screen.getByRole('button', { name: /close/i });
+      await user.click(closeButton);
+
+      await waitFor(() => {
+        expect(screen.queryByTestId('edit-user-modal')).not.toBeInTheDocument();
+      });
+    });
+
+    it('handles edit functionality for different users', async () => {
+      const user = userEvent.setup();
+      render(<AccessibleTableExamples />);
+
+      // Test editing User 2
+      const editButton = screen.getByLabelText("Edit User 2's information");
+      await user.click(editButton);
+
+      await waitFor(() => {
+        const modal = screen.getByTestId('edit-user-modal');
+        expect(modal).toBeInTheDocument();
+
+        // Check User 2 data is pre-populated
+        const nameInput = screen.getByDisplayValue('User 2');
+        expect(nameInput).toBeInTheDocument();
+
+        const emailInput = screen.getByDisplayValue('user2@example.com');
+        expect(emailInput).toBeInTheDocument();
+      });
+    });
+
+    it('works correctly with pagination - edit users on different pages', async () => {
+      const user = userEvent.setup();
+
+      // Mock implementation that returns different users based on page
+      mockUseUsers.mockImplementation((page = 1, limit = 10) => {
+        const startIndex = (page - 1) * limit + 1;
+        const users = Array.from(
+          { length: Math.min(limit, 30 - (page - 1) * limit) },
+          (_, index) => ({
+            id: `${startIndex + index}`,
+            name: `Page${page}User ${startIndex + index}`,
+            firstName: `Page${page}User`,
+            lastName: `${startIndex + index}`,
+            email: `page${page}user${startIndex + index}@example.com`,
+            role: 'Editor',
+            status: 'Active' as const,
+          }),
+        );
+
+        return {
+          data: { users, total: 30, page, limit },
+          isLoading: false,
+          error: null,
+          isError: false,
+          refetch: jest.fn(),
+        } as any;
+      });
+
+      render(<AccessibleTableExamples />);
+
+      // Navigate to page 2
+      const nextButton = screen.getByLabelText('Go to next page');
+      await user.click(nextButton);
+
+      await waitFor(() => {
+        expect(screen.getByText('Page2User 11')).toBeInTheDocument();
+      });
+
+      // Edit user on page 2
+      const editButton = screen.getByLabelText(
+        "Edit Page2User 11's information",
+      );
+      await user.click(editButton);
+
+      await waitFor(() => {
+        const modal = screen.getByTestId('edit-user-modal');
+        expect(modal).toBeInTheDocument();
+        expect(screen.getByDisplayValue('Page2User 11')).toBeInTheDocument();
+        expect(
+          screen.getByDisplayValue('page2user11@example.com'),
+        ).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe('Delete User Modal (i18n)', () => {
+    it('does not show delete modal by default', () => {
+      render(<AccessibleTableExamples />);
+
+      expect(
+        screen.queryByText('[TEST] Confirm Delete'),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByTestId('delete-confirmation-modal'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('opens delete modal when delete button is clicked', async () => {
+      const user = userEvent.setup();
+      render(<AccessibleTableExamples />);
+
+      const deleteButtons = screen.getAllByLabelText(/Delete .* account/);
+      expect(deleteButtons).toHaveLength(10);
+
+      await user.click(deleteButtons[0]);
+
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('delete-confirmation-modal'),
+        ).toBeInTheDocument();
+        expect(screen.getByText('[TEST] Confirm Delete')).toBeInTheDocument();
+      });
+    });
+
+    it('displays correct user information in delete confirmation', async () => {
+      const user = userEvent.setup();
+      render(<AccessibleTableExamples />);
+
+      const deleteButton = screen.getByLabelText("Delete User 1's account");
+      await user.click(deleteButton);
+
+      await waitFor(() => {
+        const modal = screen.getByTestId('delete-confirmation-modal');
+        expect(modal).toBeInTheDocument();
+
+        // Check separate warning elements
+        expect(
+          screen.getByText('[TEST] Are you sure you want to delete User 1?'),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByText(
+            '[TEST] This action cannot be undone. This will permanently delete the user account and remove all associated data.',
+          ),
+        ).toBeInTheDocument();
+
+        // Check action buttons are present
+        expect(screen.getByText('[TEST] Delete')).toBeInTheDocument();
+        expect(screen.getByText('[TEST] Cancel')).toBeInTheDocument();
+      });
+    });
+
+    it('closes delete modal when cancel button is clicked', async () => {
+      const user = userEvent.setup();
+      render(<AccessibleTableExamples />);
+
+      const deleteButton = screen.getByLabelText("Delete User 1's account");
+      await user.click(deleteButton);
+
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('delete-confirmation-modal'),
+        ).toBeInTheDocument();
+      });
+
+      const cancelButton = screen.getByText('[TEST] Cancel');
+      await user.click(cancelButton);
+
+      await waitFor(() => {
+        expect(
+          screen.queryByTestId('delete-confirmation-modal'),
+        ).not.toBeInTheDocument();
+      });
+    });
+
+    it('closes delete modal when close button (×) is clicked', async () => {
+      const user = userEvent.setup();
+      render(<AccessibleTableExamples />);
+
+      const deleteButton = screen.getByLabelText("Delete User 1's account");
+      await user.click(deleteButton);
+
+      await waitFor(() => {
+        expect(
+          screen.getByTestId('delete-confirmation-modal'),
+        ).toBeInTheDocument();
+      });
+
+      const closeButton = screen.getByRole('button', { name: /close/i });
+      await user.click(closeButton);
+
+      await waitFor(() => {
+        expect(
+          screen.queryByTestId('delete-confirmation-modal'),
+        ).not.toBeInTheDocument();
+      });
+    });
+
+    it('shows destructive styling for delete confirmation button', async () => {
+      const user = userEvent.setup();
+      render(<AccessibleTableExamples />);
+
+      const deleteButton = screen.getByLabelText("Delete User 1's account");
+      await user.click(deleteButton);
+
+      await waitFor(() => {
+        const modal = screen.getByTestId('delete-confirmation-modal');
+        expect(modal).toBeInTheDocument();
+
+        // Check delete button exists (styling classes are handled by ShadCN)
+        const confirmDeleteButton = screen.getByText('[TEST] Delete');
+        expect(confirmDeleteButton).toBeInTheDocument();
+      });
+    });
+
+    it('handles delete confirmation for different users', async () => {
+      const user = userEvent.setup();
+      render(<AccessibleTableExamples />);
+
+      // Test deleting User 3
+      const deleteButton = screen.getByLabelText("Delete User 3's account");
+      await user.click(deleteButton);
+
+      await waitFor(() => {
+        const modal = screen.getByTestId('delete-confirmation-modal');
+        expect(modal).toBeInTheDocument();
+
+        // Check User 3 specific warning message
+        expect(
+          screen.getByText('[TEST] Are you sure you want to delete User 3?'),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByText(
+            '[TEST] This action cannot be undone. This will permanently delete the user account and remove all associated data.',
+          ),
+        ).toBeInTheDocument();
+      });
+    });
+
+    it('works correctly with pagination - delete users on different pages', async () => {
+      const user = userEvent.setup();
+
+      // Mock implementation that returns different users based on page
+      mockUseUsers.mockImplementation((page = 1, limit = 10) => {
+        const startIndex = (page - 1) * limit + 1;
+        const users = Array.from(
+          { length: Math.min(limit, 30 - (page - 1) * limit) },
+          (_, index) => ({
+            id: `${startIndex + index}`,
+            name: `Page${page}User ${startIndex + index}`,
+            firstName: `Page${page}User`,
+            lastName: `${startIndex + index}`,
+            email: `page${page}user${startIndex + index}@example.com`,
+            role: 'Editor',
+            status: 'Active' as const,
+          }),
+        );
+
+        return {
+          data: { users, total: 30, page, limit },
+          isLoading: false,
+          error: null,
+          isError: false,
+          refetch: jest.fn(),
+        } as any;
+      });
+
+      render(<AccessibleTableExamples />);
+
+      // Navigate to page 2
+      const nextButton = screen.getByLabelText('Go to next page');
+      await user.click(nextButton);
+
+      await waitFor(() => {
+        expect(screen.getByText('Page2User 11')).toBeInTheDocument();
+      });
+
+      // Delete user on page 2
+      const deleteButton = screen.getByLabelText(
+        "Delete Page2User 11's account",
+      );
+      await user.click(deleteButton);
+
+      await waitFor(() => {
+        const modal = screen.getByTestId('delete-confirmation-modal');
+        expect(modal).toBeInTheDocument();
+        expect(
+          screen.getByText(
+            '[TEST] Are you sure you want to delete Page2User 11?',
+          ),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByText(
+            '[TEST] This action cannot be undone. This will permanently delete the user account and remove all associated data.',
+          ),
+        ).toBeInTheDocument();
       });
     });
   });

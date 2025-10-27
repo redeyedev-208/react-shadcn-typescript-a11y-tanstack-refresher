@@ -172,6 +172,30 @@
     "dialogs": "Diálogos",
     "alerts": "Alertas"
   },
+  "feedback": {
+    "title": "Comparte Tu Retroalimentación",
+    "description": "Ayúdanos a mejorar compartiendo tus pensamientos sobre esta aplicación",
+    "positive": {
+      "button": "Retroalimentación Positiva",
+      "confirm": {
+        "title": "Compartir Retroalimentación Positiva",
+        "description": "¡Gracias por tomarte el tiempo de compartir tu experiencia positiva!"
+      }
+    },
+    "negative": {
+      "button": "Retroalimentación Negativa", 
+      "confirm": {
+        "title": "Compartir Retroalimentación para Mejoras",
+        "description": "Tu retroalimentación nos ayuda a identificar áreas de mejora. ¡Gracias por ayudarnos a crecer!"
+      }
+    },
+    "success": {
+      "message": "¡Gracias! Tu retroalimentación ha sido enviada exitosamente."
+    },
+    "lastSubmission": {
+      "label": "Última retroalimentación enviada"
+    }
+  },
   "common": {
     "save": "Guardar",
     "cancel": "Cancelar",
@@ -180,6 +204,7 @@
     "close": "Cerrar",
     "open": "Abrir",
     "yes": "Sí",
-    "no": "No"
+    "no": "No",
+    "confirm": "Enviar Retroalimentación"
   }
 }

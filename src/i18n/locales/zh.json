@@ -172,6 +172,30 @@
     "dialogs": "对话框",
     "alerts": "警告"
   },
+  "feedback": {
+    "title": "分享您的反馈",
+    "description": "通过分享您对此应用的想法来帮助我们改进",
+    "positive": {
+      "button": "正面反馈",
+      "confirm": {
+        "title": "分享正面反馈",
+        "description": "感谢您花时间分享您的积极体验！"
+      }
+    },
+    "negative": {
+      "button": "负面反馈", 
+      "confirm": {
+        "title": "分享改进反馈",
+        "description": "您的反馈帮助我们识别改进领域。感谢您帮助我们成长！"
+      }
+    },
+    "success": {
+      "message": "谢谢！您的反馈已成功提交。"
+    },
+    "lastSubmission": {
+      "label": "最后提交的反馈"
+    }
+  },
   "common": {
     "save": "保存",
     "cancel": "取消",
@@ -180,6 +204,7 @@
     "close": "关闭",
     "open": "打开",
     "yes": "是",
-    "no": "否"
+    "no": "否",
+    "confirm": "提交反馈"
   }
 }

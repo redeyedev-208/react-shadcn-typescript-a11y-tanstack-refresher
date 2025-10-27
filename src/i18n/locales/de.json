@@ -172,6 +172,30 @@
     "dialogs": "Dialoge",
     "alerts": "Benachrichtigungen"
   },
+  "feedback": {
+    "title": "Teilen Sie Ihr Feedback",
+    "description": "Helfen Sie uns bei der Verbesserung, indem Sie Ihre Gedanken zu dieser Anwendung teilen",
+    "positive": {
+      "button": "Positives Feedback",
+      "confirm": {
+        "title": "Positives Feedback Teilen",
+        "description": "Vielen Dank, dass Sie sich die Zeit genommen haben, Ihre positive Erfahrung zu teilen!"
+      }
+    },
+    "negative": {
+      "button": "Negatives Feedback", 
+      "confirm": {
+        "title": "Feedback für Verbesserungen Teilen",
+        "description": "Ihr Feedback hilft uns, Verbesserungsbereiche zu identifizieren. Vielen Dank, dass Sie uns beim Wachsen helfen!"
+      }
+    },
+    "success": {
+      "message": "Vielen Dank! Ihr Feedback wurde erfolgreich übermittelt."
+    },
+    "lastSubmission": {
+      "label": "Letztes übermitteltes Feedback"
+    }
+  },
   "common": {
     "save": "Speichern",
     "cancel": "Abbrechen",
@@ -180,6 +204,7 @@
     "close": "Schließen",
     "open": "Öffnen",
     "yes": "Ja",
-    "no": "Nein"
+    "no": "Nein",
+    "confirm": "Feedback Senden"
   }
 }

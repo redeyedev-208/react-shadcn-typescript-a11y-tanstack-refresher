@@ -172,6 +172,30 @@
     "dialogs": "Dialogs",
     "alerts": "Alerts"
   },
+  "feedback": {
+    "title": "Share Your Feedback",
+    "description": "Help us improve by sharing your thoughts about this application",
+    "positive": {
+      "button": "Positive Feedback",
+      "confirm": {
+        "title": "Share Positive Feedback",
+        "description": "Thank you for taking the time to share your positive experience!"
+      }
+    },
+    "negative": {
+      "button": "Negative Feedback", 
+      "confirm": {
+        "title": "Share Feedback for Improvement",
+        "description": "Your feedback helps us identify areas for improvement. Thank you for helping us grow!"
+      }
+    },
+    "success": {
+      "message": "Thank you! Your feedback has been submitted successfully."
+    },
+    "lastSubmission": {
+      "label": "Last feedback submitted"
+    }
+  },
   "common": {
     "save": "Save",
     "cancel": "Cancel",
@@ -180,6 +204,7 @@
     "close": "Close",
     "open": "Open",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "confirm": "Submit Feedback"
   }
 }

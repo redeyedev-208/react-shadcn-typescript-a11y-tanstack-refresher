@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Menu,
@@ -26,10 +26,63 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { AccessibilityTester } from '@/components/AccessibilityTester';
 import { AccessibleFormExamples } from '@/components/forms/AccessibleFormExamples';
 import { AccessibleTableExamples } from '@/components/tables/AccessibleTableExamples';
+import FeedbackComponent from '@/components/feedback/FeedbackComponent';
 
+/**
+ * Main application component featuring a comprehensive accessibility showcase.
+ *
+ * This component demonstrates WCAG 2.2 AAA compliance patterns including:
+ * - Keyboard navigation between tab content and tab headers
+ * - Focus management for modal interactions
+ * - Accessible form validation and submission
+ * - Screen reader optimized data tables
+ * - Internationalization support
+ * - Theme switching with proper contrast
+ *
+ * @returns {JSX.Element} The complete application interface
+ */
 function App() {
   const { t } = useTranslation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Refs for sequential tab navigation
+  const buttonsTabRef = useRef<HTMLButtonElement>(null);
+  const formsTabRef = useRef<HTMLButtonElement>(null);
+  const dataTabRef = useRef<HTMLButtonElement>(null);
+  const feedbackTabRef = useRef<HTMLButtonElement>(null);
+
+  /**
+   * Handles keyboard navigation from tab content to the next tab header.
+   * Implements WCAG 2.2 sequential navigation requirements for tab interfaces.
+   *
+   * @param {React.KeyboardEvent} event - The keyboard event
+   * @param {React.RefObject<HTMLButtonElement | null>} nextTabRef - Reference to the next tab trigger
+   */
+  const handleTabContentKeyDown = (
+    event: React.KeyboardEvent,
+    nextTabRef: React.RefObject<HTMLButtonElement | null>,
+  ) => {
+    if (event.key === 'Tab' && !event.shiftKey) {
+      const target = event.target as HTMLElement;
+      const tabContent = target.closest('[role="tabpanel"]');
+
+      if (tabContent) {
+        // Get all focusable elements in the current tab panel
+        const focusableElements = tabContent.querySelectorAll(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        );
+
+        // If this is the last focusable element in the tab content
+        if (
+          focusableElements.length > 0 &&
+          target === focusableElements[focusableElements.length - 1]
+        ) {
+          event.preventDefault();
+          nextTabRef.current?.focus();
+        }
+      }
+    }
+  };
 
   const features = [
     {
@@ -102,25 +155,25 @@ function App() {
           >
             <a
               href='#features'
-              className='hover:text-foreground/80'
+              className='hover:text-foreground/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md px-2 py-1'
             >
               {t('navigation.features')}
             </a>
             <a
               href='#testing'
-              className='hover:text-foreground/80'
+              className='hover:text-foreground/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md px-2 py-1'
             >
               {t('navigation.testing')}
             </a>
             <a
               href='#showcase'
-              className='hover:text-foreground/80'
+              className='hover:text-foreground/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md px-2 py-1'
             >
               {t('navigation.components')}
             </a>
             <a
               href='#about'
-              className='hover:text-foreground/80'
+              className='hover:text-foreground/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md px-2 py-1'
             >
               {t('navigation.about')}
             </a>
@@ -163,31 +216,31 @@ function App() {
             >
               <a
                 href='#hero'
-                className='block px-3 py-2 rounded-md hover:bg-accent'
+                className='block px-3 py-2 rounded-md hover:bg-accent focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2'
               >
                 {t('navigation.home')}
               </a>
               <a
                 href='#features'
-                className='block px-3 py-2 rounded-md hover:bg-accent'
+                className='block px-3 py-2 rounded-md hover:bg-accent focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2'
               >
                 {t('navigation.features')}
               </a>
               <a
                 href='#testing'
-                className='block px-3 py-2 rounded-md hover:bg-accent'
+                className='block px-3 py-2 rounded-md hover:bg-accent focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2'
               >
                 {t('navigation.testing')}
               </a>
               <a
                 href='#showcase'
-                className='block px-3 py-2 rounded-md hover:bg-accent'
+                className='block px-3 py-2 rounded-md hover:bg-accent focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2'
               >
                 {t('navigation.components')}
               </a>
               <a
                 href='#about'
-                className='block px-3 py-2 rounded-md hover:bg-accent'
+                className='block px-3 py-2 rounded-md hover:bg-accent focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2'
               >
                 {t('navigation.about')}
               </a>
@@ -332,16 +385,28 @@ function App() {
               className='w-full'
             >
               <TabsList className='grid w-full grid-cols-4'>
-                <TabsTrigger value='buttons'>
+                <TabsTrigger
+                  ref={buttonsTabRef}
+                  value='buttons'
+                >
                   {t('showcase.tabs.buttons')}
                 </TabsTrigger>
-                <TabsTrigger value='forms'>
+                <TabsTrigger
+                  ref={formsTabRef}
+                  value='forms'
+                >
                   {t('showcase.tabs.forms')}
                 </TabsTrigger>
-                <TabsTrigger value='data'>
+                <TabsTrigger
+                  ref={dataTabRef}
+                  value='data'
+                >
                   {t('showcase.tabs.data')}
                 </TabsTrigger>
-                <TabsTrigger value='feedback'>
+                <TabsTrigger
+                  ref={feedbackTabRef}
+                  value='feedback'
+                >
                   {t('showcase.tabs.feedback')}
                 </TabsTrigger>
               </TabsList>
@@ -349,6 +414,7 @@ function App() {
               <TabsContent
                 value='buttons'
                 className='space-y-4'
+                onKeyDown={(e) => handleTabContentKeyDown(e, formsTabRef)}
               >
                 <Card>
                   <CardHeader>
@@ -387,6 +453,7 @@ function App() {
               <TabsContent
                 value='forms'
                 className='space-y-4'
+                onKeyDown={(e) => handleTabContentKeyDown(e, dataTabRef)}
               >
                 <AccessibleFormExamples />
               </TabsContent>
@@ -394,6 +461,7 @@ function App() {
               <TabsContent
                 value='data'
                 className='space-y-4'
+                onKeyDown={(e) => handleTabContentKeyDown(e, feedbackTabRef)}
               >
                 <AccessibleTableExamples />
               </TabsContent>
@@ -401,22 +469,14 @@ function App() {
               <TabsContent
                 value='feedback'
                 className='space-y-4'
+                onKeyDown={(e) => handleTabContentKeyDown(e, buttonsTabRef)}
               >
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Feedback Components</CardTitle>
-                    <CardDescription>
-                      Toast notifications, alerts, and loading states with
-                      proper accessibility support.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className='text-muted-foreground'>
-                      User feedback components following WCAG guidelines for
-                      notifications.
-                    </p>
-                  </CardContent>
-                </Card>
+                <FeedbackComponent
+                  onFeedbackSubmit={() => {
+                    // Here you could send to analytics, API, etc.
+                  }}
+                  className='max-w-lg mx-auto'
+                />
               </TabsContent>
             </Tabs>
           </section>
