@@ -4,10 +4,7 @@ There will be a url input on the dashboard to run an accessibility audit on any 
 We'll we using JSON WebServer to mock a DB to utilize our TanStack libraries for various examples. This whole application when complete will have WCAG 2.2 AAA as it's standard. Deployed to vercerl when fully complete to have a working demo for helping others learn about web accessibility.
 
 Project has a 100% fully accessible baseline, and accessibility issues will be fixed with each iteration for new features.
-
-<img width="1506" height="960" alt="react-typescript-shadcn-a11y-baseline" src="https://github.com/user-attachments/assets/dd75f433-c3c2-4632-8d59-8a8135b7efce" />
-
-
+<img width="1605" height="959" alt="react-shadcn-typescript-tanstack-netlify-deploy" src="https://github.com/user-attachments/assets/cd776298-b2ca-4b41-a482-99c1aee6bdeb" />
 
 
 ## **Tech Stack Section**
@@ -32,9 +29,7 @@ Project has a 100% fully accessible baseline, and accessibility issues will be f
 - Specific commands for each testing approach
 
 Jest Test(s) baseline with coverage example
-<img width="959" height="947" alt="jest-test-coverage-baseline" src="https://github.com/user-attachments/assets/4124a9e4-4c1d-44a5-be4b-69e71c72d110" />
-
-
+<img width="710" height="1001" alt="react-shadcn-final-test-coverage-before-deploy" src="https://github.com/user-attachments/assets/769690fe-af5b-440f-8fdb-a07995d0eba9" />
 
 ## **JSON Server Backend**
 - Explains the mock backend setup
@@ -47,6 +42,5 @@ Jest Test(s) baseline with coverage example
 - Git workflow for frequent pushes
 - Commit message conventions
 
-## **Coming Soon Section**
-- TanStack Query integration in progress
-- CI/CD pipeline via github actions that will deploy to vercel or netlify
+## **Live Demo Example**
+This project is live on Netlify here: [React with TypeScript, ShadCN, TanStack and WCAG 2.2 AAA Standard](https://react-shadcn-a11y-demo.netlify.app/)
