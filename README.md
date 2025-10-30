@@ -44,3 +44,18 @@ Jest Test(s) baseline with coverage example
 
 ## **Live Demo Example**
 This project is live on Netlify here: [React with TypeScript, ShadCN, TanStack and WCAG 2.2 AAA Standard](https://react-shadcn-a11y-demo.netlify.app/)
+
+___
+
+## Variation of this demo using a supabase backend
+Here is a live demo using supabase as the backend and I love Silicon Valley so it made sense to keep it simple. 
+This demo also has the code available, feel free to use it by making a copy and trying it out. 
+You just need to follow the steps on how to do this with the backend REDME and should be good to go. 
+
+Codebase:
+
+URL:
+[React and TypeScript with ShadCN, TanStack, Tailwind and Supabase](https://github.com/TGrooves-208/react-typescript-shadcn-tanstack-demo/blob/main/README.md)
+
+Live Demo:
+[Netlify live demo](https://68fec903d48185fb74d80e73--react-shadcn-a11y-demo.netlify.app/)
